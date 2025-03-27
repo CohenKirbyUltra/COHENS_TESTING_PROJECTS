@@ -9,6 +9,7 @@
 
       button {
         font-family: monospace;
+        font-weight: bolder;
         border-style: solid;
         border-width: 4px;
         border-radius: 32px;
@@ -17,25 +18,26 @@
         color: #ccc;
         width: 200px;
         height: 100px;
-        transition: 0.5s;
+        transition: 0.2s;
       }
 
       button:hover {
         font-family: monospace;
+        font-weight: bolder;
         border-style: solid;
         border-width: 4px;
         border-radius: 32px;
-        border-color: #999;
-        background-color: #333;
-        color: #999;
+        border-color: #ddd;
+        background-color: #666;
+        color: #ddd;
         width: 200px;
         height: 100px;    
       }
     </style>
     <title>COHENS TESTING PROJECTS</title>
     <center>
-      <h1>Hello World!</h1>
-      <p>This is where I test some experiemental stuff. see the projects you can test <b>below.</b></p>    
+      <h1 id="title1"></h1>
+      <p id="title2"></p>    
     </center>
   </head>
   <body>
@@ -57,5 +59,32 @@
         <h5>Hope everyone enjoys the stuff I make here and test out. Enjoy!</h5>        
       </center>
     </footer>
+
+    <script>
+      // Test
+      var title, underTitle;
+
+      title = "Hello World!";
+      underTitle = "This is where I test some experiemental stuff. see the projects you can test below.";
+
+      var i = 0;
+      var speed = formatTime(50); /* The speed/duration of the effect in milliseconds */
+
+      function typeWriter(element, txt) {
+        if (i < txt.length) {
+          document.getElementById(element).innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      typeWriter("title1", title);
+
+      setTimeout(typeWriter("title2", underTitle), 1000);
+
+      function formatTime(mill) {
+        return mill * 1000;
+      }
+    </script>
   </body>
 </html>
