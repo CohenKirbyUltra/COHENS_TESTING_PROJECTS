@@ -68,13 +68,13 @@
       underTitle = "This is where I test some experiemental stuff. see the projects you can test below.";
 
       var i = 0;
-      var speed = formatTime(50); /* The speed/duration of the effect in milliseconds */
+      var speed = 500; /* The speed/duration of the effect in milliseconds */
 
       function typeWriter(element, txt) {
         let ele = element;
         let t = txt;
         if (i < txt.length) {
-          document.getElementById(element).innerHTML += txt.charAt(i);
+          document.getElementById(element).innerHTML = txt.subString(0, i);
           i++;
           setTimeout(typeWriter(ele, t), speed);
         }
