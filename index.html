@@ -67,7 +67,7 @@
       title = "Hello World!";
       underTitle = "This is where I test some experiemental stuff. see the projects you can test below.";
 
-      async function typeSentence(sentence, eleRef, delay = 100) {
+      async function typeSentence(sentence, eleRef, delay) {
         const letters = sentence.split("");
         let i = 0;
         while(i < letters.length) {
@@ -83,9 +83,9 @@
       }
 
       async function anim() {
-          typeSentence(title, "title1");
+          typeSentence(title, "title1", 100);
           await waitForMs(500);
-          typeSentence(underTitle, "title2");
+          typeSentence(underTitle, "title2", 44);
       }
 
       anim();
