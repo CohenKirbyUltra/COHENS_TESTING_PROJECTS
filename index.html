@@ -67,26 +67,28 @@
       title = "Hello World!";
       underTitle = "This is where I test some experiemental stuff. see the projects you can test below.";
 
-      var i = 0;
-      var speed = 500; /* The speed/duration of the effect in milliseconds */
-
-      function typeWriter(element, txt) {
-        let ele = element;
-        let t = txt;
-        if (i < txt.length) {
-          document.getElementById(element).innerHTML = txt.substring(0, i);
-          i++;
-          setTimeout(typeWriter(ele, t), speed);
+      async function typeSentence(sentence, eleRef, delay = 100) {
+        const letters = sentence.split("");
+        let i = 0;
+        while(i < letters.length) {
+          await waitForMs(delay);
+          $(eleRef).append(letters[i]);
+          i++
         }
+        return;
       }
 
-      typeWriter("title1", title);
-
-      setTimeout(typeWriter("title2", underTitle), 1000);
-
-      function formatTime(mill) {
-        return mill * 1000;
+      function waitForMs(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
       }
+
+      async function anim() {
+          typeSentence(title, "#title1");
+          await waitForMs(500);
+          typeSentence(underTitle, "#title2");
+      }
+
+      anim();
     </script>
   </body>
 </html>
