@@ -72,7 +72,7 @@
         let i = 0;
         while(i < letters.length) {
           await waitForMs(delay);
-          $(eleRef).append(letters[i]);
+          document.getElementByID(eleRef).innerHTML += letters[i];
           i++
         }
         return;
