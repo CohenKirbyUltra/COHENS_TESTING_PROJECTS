@@ -71,10 +71,12 @@
       var speed = formatTime(50); /* The speed/duration of the effect in milliseconds */
 
       function typeWriter(element, txt) {
+        let ele = element;
+        let t = txt;
         if (i < txt.length) {
           document.getElementById(element).innerHTML += txt.charAt(i);
           i++;
-          setTimeout(typeWriter, speed);
+          setTimeout(typeWriter(ele, t), speed);
         }
       }
 
