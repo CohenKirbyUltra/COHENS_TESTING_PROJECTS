@@ -74,7 +74,7 @@
         let ele = element;
         let t = txt;
         if (i < txt.length) {
-          document.getElementById(element).innerHTML = txt.subString(0, i);
+          document.getElementById(element).innerHTML = txt.substring(0, i);
           i++;
           setTimeout(typeWriter(ele, t), speed);
         }
