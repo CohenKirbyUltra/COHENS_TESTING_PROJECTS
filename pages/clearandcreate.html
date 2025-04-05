@@ -16,7 +16,7 @@
       document.getElementById("switch").addEventListener("click", _errorScreen);
 
       function _errorScreen() {
-        let a = document.querySelectorAll("*");
+        let a = document.body.querySelectorAll("*");
         a.forEach(element => {
           document.body.removeChild(element);
         });
