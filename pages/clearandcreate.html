@@ -17,9 +17,10 @@
 
       // essentially a html scratch wait block
       async function wait(seconds) {
+        let secs = seconds * 1000;
         await setTimeout(() => {
           // wait
-        }, seconds);
+        }, secs);
       }
 
       async function _errorScreen() {
@@ -33,6 +34,11 @@
         });
 
         // After clearing, create error lmao
+        wait(2);
+
+        document.title = "";
+
+        wait(0.5);
 
         document.body.style.backgroundColor = "black";
 
