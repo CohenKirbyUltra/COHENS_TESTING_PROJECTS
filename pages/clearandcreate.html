@@ -17,7 +17,7 @@
 
       // essentially a html scratch wait block
       async function wait(seconds) {
-        setTimeout(() => {
+        await setTimeout(() => {
           // wait
         }, seconds);
       }
@@ -29,7 +29,7 @@
         let a = document.body.querySelectorAll("*");
         a.forEach(element => {
           document.body.removeChild(element);
-          await wait(0.01);
+          wait(0.01);
         });
 
         // After clearing, create error lmao
