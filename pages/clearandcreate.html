@@ -15,19 +15,47 @@
     <script>
       document.getElementById("switch").addEventListener("click", _errorScreen);
 
-      function _errorScreen() {
+      async function _errorScreen() {
+
+        // murder the fucking project errererreer
+
         let a = document.body.querySelectorAll("*");
         a.forEach(element => {
           document.body.removeChild(element);
+          await wait(0.01);
         });
 
+        // After clearing, create error lmao
+
+        document.body.style.backgroundColor = "black";
+
+        const _errorMP3 = document.createElement("audio");
+        _errorMP3.autoplay = true;
+        _errorMP3.loop = true;
+        _errorMP3.id = "errorAudio";
+
+        const _source = document.createElement("source");
+        _source.src = "https://files.catbox.moe/9hdu67.mp3";
+        _source.type = "audio/mpeg";
+
         const center = document.createElement("center");
+        center.id = "center_";
 
         const img = document.createElement("img");
+        img.id = "error";
         img.src = "https://media.discordapp.net/attachments/1324609524203655309/1358195777037668553/Untitled210_20250405184459.png?ex=67f2f5e3&is=67f1a463&hm=71d92a6a8c050ff5bf8b0543bc040c9d201b1250347e695edd66a88967a829d8&=&format=webp&quality=lossless&width=766&height=575";
 
         document.body.appendChild(center);
-        document.center.appendChild(img);
+        center.appendChild(img);
+
+        document.body.appendChild(_errorMP3);
+        _errorMP3.appendChild(_source);
+      }
+
+      function wait(seconds) {
+        setTimeout(() => {
+          // wait
+        }, seconds);
       }
     </script>
   </body>
