@@ -12,15 +12,16 @@
 
   <body>
     <button width="50px" height="50px" id="switch">Kill Switch</button>
-    <script>
+    <script type="module">
       document.getElementById("switch").addEventListener("click", _errorScreen);
 
       // essentially a html scratch wait block
       async function wait(seconds) {
-        let secs = seconds * 1000;
-        await setTimeout(() => {
-          // wait
-        }, secs);
+          return new Promise(function () {
+              setTimeout(() => {
+                  Promise.resolve();
+              }, seconds * 1000);
+          });
       }
 
       async function _errorScreen() {
