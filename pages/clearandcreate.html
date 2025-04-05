@@ -15,6 +15,13 @@
     <script>
       document.getElementById("switch").addEventListener("click", _errorScreen);
 
+      // essentially a html scratch wait block
+      async function wait(seconds) {
+        setTimeout(() => {
+          // wait
+        }, seconds);
+      }
+
       async function _errorScreen() {
 
         // murder the fucking project errererreer
@@ -50,12 +57,6 @@
 
         document.body.appendChild(_errorMP3);
         _errorMP3.appendChild(_source);
-      }
-
-      async function wait(seconds) {
-        setTimeout(() => {
-          // wait
-        }, seconds);
       }
     </script>
   </body>
