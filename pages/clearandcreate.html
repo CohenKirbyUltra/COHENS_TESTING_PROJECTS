@@ -17,7 +17,7 @@
 
       // essentially a html scratch wait block
       async function wait(seconds) {
-          await new Promise(setTimeout(() => {
+          await new Promise((resolve) => setTimeout(() => {
               Promise.resolve();
           }, seconds * 1000));
       }
