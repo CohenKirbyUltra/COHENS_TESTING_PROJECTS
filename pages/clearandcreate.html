@@ -17,14 +17,12 @@
 
       // essentially a html scratch wait block
       async function wait(seconds) {
-          return new Promise(function () {
-              setTimeout(() => {
-                  Promise.resolve();
-              }, seconds * 1000);
-          });
+          await new Promise(setTimeout(() => {
+              Promise.resolve();
+          }, seconds * 1000));
       }
 
-      async function _errorScreen() {
+      function _errorScreen() {
 
         // murder the fucking project errererreer
 
