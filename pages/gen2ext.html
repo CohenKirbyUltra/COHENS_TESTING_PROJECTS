@@ -12,12 +12,12 @@
         <label for="name">Extension Name</label>
         <input id="name" value="ExtNAME" />
         
-        <br>
+        <br><br>
 
         <label for="id">Extension Id</label>
         <input id="id" value="ExtID" />
 
-        <br>
+        <br><br>
 
         <label for="inputCode">Input</label>
         <input id="inputCode" type="text" placeholder="...Code"/>
@@ -25,7 +25,7 @@
         <br>
 
         <label for="resultCode">Result</label>
-        <textarea id="resultCode" width="100%" height="1000px"></textarea>
+        <textarea id="resultCode" style="width: fit-content; height: fit-content;" disabled="true"></textarea>
 
         <script>
             var _name = document.getElementById("name").value;
@@ -42,7 +42,7 @@
                 let startExt = "(function (Scratch) { \n 'use strict' \n if (!Scratch.extensions.unsandboxed) throw new Error(`${extName} must be run unsandboxed`);";
                 let endExt = "Scratch.extensions.register(new JgScriptsBlocks()); \n })(Scratch);";
                 
-                return startExt + "\n" + code + "\n\n" + endExt;
+                return startExt + "\n\n" + code + "\n\n" + endExt;
             }
         </script>
     </body>
