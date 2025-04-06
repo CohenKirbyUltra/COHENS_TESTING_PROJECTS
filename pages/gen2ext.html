@@ -9,11 +9,36 @@
     </head>
 
     <body>
+        <label for="name">Extension Name</label>
+        <input id="name" value="ExtNAME" />
+
+        <label for="id">Extension Id</label>
+        <input id="id" value="ExtID" />
+
         <label for="inputCode">Input</label>
         <input id="inputCode" type="text" placeholder="...Code"/>
 
         <label for="resultCode">Result</label>
         <area id="resultCode"/>
+
+        <script>
+            var _name = document.getElementById("ExtNAME").value;
+            var _id = document.getElementById("ExtID").value;
+
+            var input = document.getElementById("inputCode");
+            var output = document.getElementById("resultCode");
+            
+            input.addEventListener("input", () => {
+                output.innerHTML = result(_name, _id, input.value);
+            });
+            
+            function result(extName, extID, code) {
+                let startExt = "(function (Scratch) { \n 'use strict' \n if (!Scratch.extensions.unsandboxed) throw new Error(`${extName} must be run unsandboxed`);";
+                let endExt = "Scratch.extensions.register(new JgScriptsBlocks()); \n })(Scratch);";
+                
+                return startExt + code + "\n\n" + endExt;
+            }
+        </script>
     </body>
     </center>
 </html>
