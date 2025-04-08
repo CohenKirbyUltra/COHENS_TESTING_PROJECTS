@@ -23,6 +23,7 @@
             myY = 0;
             speed = 3;
 
+            ctx.fillStyle = "red";
             ctx.rect(myX, myY, 50, 50);
             ctx.stroke();
 
@@ -32,23 +33,27 @@
                 ctx.stroke();
             }
 
-            myX.addEventListener("change", onUpdate);
-            myY.addEventListener("change", onUpdate);
-
             document.addEventListener("keydown", onKeyPressed(event))
 
             function onKeyPressed(event) {
                 switch (event.key) {
                     case ArrowLeft:
+                        onUpdate();
                         myX -= speed;
                     break;
+
                     case ArrowDown:
+                        onUpdate();
                         myY -= speed;   
                     break;
+
                     case ArrowUp:
+                        onUpdate();
                         myY += speed;   
                     break;
+
                     case ArrowRight:
+                        onUpdate();
                         myX += speed;   
                     break;
                     
