@@ -42,21 +42,25 @@
 
                 switch (new KeyboardEvent("keydown").key) {
                     case "ArrowLeft":
+                        console.log("left");
                         moveRect(myX, myY);
                         myX -= speed;
                     break;
 
                     case "ArrowDown":
+                        console.log("down");
                         moveRect(myX, myY);
                         myY -= speed;   
                     break;
 
                     case "ArrowUp":
+                        console.log("up");
                         moveRect(myX, myY);
                         myY += speed;   
                     break;
 
                     case "ArrowRight":
+                        console.log("right");
                         moveRect(myX, myY);
                         myX += speed;   
                     break;
