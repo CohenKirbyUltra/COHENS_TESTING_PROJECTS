@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Moving Cube</title>
+        <p>Arrow Keys / W A S D</p>
+    </head>
+
+    <body>
+        <script>
+            var Canvas = new Cube("canvas", "Cube", 0, 0, "50px", "50px", "#ff0");
+
+            document.addEventListener("keydown", onKeyPressed(event))
+
+            function onKeyPressed(event) {
+                switch (KeyboardEvent.key) {
+                    case ArrowLeft:
+                        
+                        break;
+                
+                    default:
+                        break;
+                }
+            }
+
+            function Cube(element, id, x, y, width, height, color) {
+                this.element = document.createElement(element);
+                
+                this.id = id;
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+
+                document.appendChild(this.element);
+            }
+        </script>
+    </body>
+</html>
