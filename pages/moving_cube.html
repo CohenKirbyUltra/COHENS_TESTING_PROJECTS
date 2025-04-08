@@ -34,12 +34,14 @@
                 ctx.stroke();
             }
 
-            document.addEventListener("keydown", (event) => {
+            document.addEventListener("keypress", (event) => {
 
                 console.log("hi");
                 console.log(event.key);
+                
+                let key = event.key;
 
-                switch (event.key) {
+                switch (key) {
                     case "ArrowLeft":
                         console.log("left");
                         moveRect(myX, myY);
@@ -49,13 +51,13 @@
                     case "ArrowDown":
                         console.log("down");
                         moveRect(myX, myY);
-                        myY -= speed;   
+                        myY += speed;   
                     break;
 
                     case "ArrowUp":
                         console.log("up");
                         moveRect(myX, myY);
-                        myY += speed;   
+                        myY -= speed;   
                     break;
 
                     case "ArrowRight":
