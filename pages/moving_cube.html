@@ -33,10 +33,10 @@
                 ctx.stroke();
             }
 
-            document.addEventListener("keydown", onKeyPressed(event))
+            document.addEventListener("keydown", onKeyPressed(new KeyboardEvent("keydown")));
 
-            function onKeyPressed(event) {
-                switch (event.key) {
+            function onKeyPressed(key) {
+                switch (key) {
                     case ArrowLeft:
                         onUpdate();
                         myX -= speed;
