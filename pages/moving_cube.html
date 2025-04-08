@@ -24,19 +24,22 @@
             speed = 3;
 
             ctx.fillStyle = "red";
-            ctx.rect(myX, myY, 50, 50);
+            ctx.fillRect(myX, myY, 50, 50);
             ctx.stroke();
 
             function onUpdate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.rect(myX, myY, 50, 50);
+                ctx.fillRect(myX, myY, 50, 50);
                 ctx.stroke();
             }
 
-            document.addEventListener("keydown", onKeyPressed(new KeyboardEvent("keydown")));
+            document.addEventListener("keydown", onKeyPressed);
 
-            function onKeyPressed(key) {
-                switch (key) {
+            function onKeyPressed() {
+                console.log("hi");
+
+                let keyboard = new KeyboardEvent("keydown");
+                switch (keyboard.key) {
                     case "ArrowLeft":
                         onUpdate();
                         myX -= speed;
