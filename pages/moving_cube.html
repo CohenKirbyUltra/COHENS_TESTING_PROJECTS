@@ -34,12 +34,10 @@
                 ctx.stroke();
             }
 
-            document.addEventListener("keydown", onKeyPressed(event.key));
-
-            function onKeyPressed(key) {
+            document.addEventListener("keydown", (event) => {
 
                 console.log("hi");
-                console.log(key)
+                console.log(event.key);
 
                 switch (key) {
                     case "ArrowLeft":
@@ -70,7 +68,7 @@
                     default:
                         break;
                 }
-            } 
+            });
         </script>
     </body>
 </html>
