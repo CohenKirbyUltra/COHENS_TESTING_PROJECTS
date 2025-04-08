@@ -6,33 +6,51 @@
 
     <body>
         <script>
-            var Canvas = new Cube("canvas", "Cube", 0, 0, "50px", "50px", "#ff0");
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            
+            var myX, myY, speed;
+
+            myX = 0;
+            myY = 0;
+            speed = 3;
+
+            ctx.rect(myX, myY, 50, 50);
+            ctx.stroke();
+
+            function onUpdate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.rect(myX, myY, 50, 50);
+                ctx.stroke();
+            }
+
+            myX.addEventListener("change", onUpdate);
+            myY.addEventListener("change", onUpdate);
 
             document.addEventListener("keydown", onKeyPressed(event))
 
             function onKeyPressed(event) {
-                switch (KeyboardEvent.key) {
+                switch (event.key) {
                     case ArrowLeft:
-                        
-                        break;
+                        myX -= speed;
+                    break;
+                    case ArrowDown:
+                        myY -= speed;   
+                    break;
+                    case ArrowUp:
+                        myY += speed;   
+                    break;
+                    case ArrowRight:
+                        myX += speed;   
+                    break;
+                    
                 
                     default:
                         break;
                 }
             }
 
-            function Cube(element, id, x, y, width, height, color) {
-                this.element = document.createElement(element);
-                
-                this.id = id;
-                this.x = x;
-                this.y = y;
-                this.width = width;
-                this.height = height;
-                this.color = color;
-
-                document.appendChild(this.element);
-            }
+            
         </script>
     </body>
 </html>
