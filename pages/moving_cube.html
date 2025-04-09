@@ -24,14 +24,14 @@
             myY = 0;
             speed = 3;
             
-            var keyInfo = (
-                this.key = "",
-                this.code = "",
-                this.ctrl = "",
-                this.alt = "",
-                this.shift = "",
-                this.meta = ""
-            )
+            var keyInfo = new KeyInfo(
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            );
 
             ctx.fillStyle = "red";
             ctx.fillRect(myX, myY, 50, 50);
@@ -62,7 +62,7 @@
             }
 
             document.addEventListener("keydown", (event) => {
-                keyInfo = (
+                keyInfo = new KeyInfo(
                     event.key, 
                     event.keyCode, 
                     event.ctrlKey, 
@@ -73,7 +73,7 @@
             });
 
             document.addEventListener("keyup", (event) => {
-                keyInfo = (
+                keyInfo = new KeyInfo(
                     event.key, 
                     event.keyCode, 
                     event.ctrlKey, 
