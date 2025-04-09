@@ -16,55 +16,64 @@
         <script>
             const canvas = document.getElementById("myCanvas");
             const ctx = canvas.getContext("2d");
+            const FPS = 60;
             
             var myX, myY, speed;
 
             myX = 0;
             myY = 0;
-            speed = 5;
+            speed = 3;
+            
+            const keyInfo = "";
 
             ctx.fillStyle = "red";
             ctx.fillRect(myX, myY, 50, 50);
             ctx.stroke();
 
-            function moveRect(x, y) {
-                console.log("Updated");
+            function Update() {
+                if (!keyInfo.ctrl && !keyInfo.alt && !keyInfo.shift && !keyInfo.meta) {
+                    if (keyInfo.key == "ArrowLeft" || keyInfo.key == "KeyA") {myX -= speed}
+                    if (keyInfo.key == "ArrowDown" || keyInfo.key == "KeyS") {myX -= speed}
+                    if (keyInfo.key == "ArrowUp" || keyInfo.key == "KeyW") {myX -= speed}
+                    if (keyInfo.key == "ArrowRight" || keyInfo.key == "KeyD") {myX -= speed}
+                }
+
                 ctx.clearRect(0, 0, 2000, 200);
-                ctx.fillRect(x, y, 50, 50);
+                ctx.fillRect(myX, myY, 50, 50);
                 ctx.stroke();
             }
 
+            setInterval(Update(), FPS);
+
+            function KeyInfo(key, code, ctrl, alt, shift, meta) {
+                this.key = key;
+                this.code = code;
+                this.ctrl = ctrl;
+                this.alt = alt;
+                this.shift = shift;
+                this.meta = meta;
+            }
+
             document.addEventListener("keydown", (event) => {
+                keyInfo = new KeyInfo(
+                    event.key, 
+                    event.keyCode, 
+                    event.ctrlKey, 
+                    event.altKey, 
+                    event.shiftKey, 
+                    event.metaKey
+                );
+            });
 
-                console.log("hi");
-                console.log(event.key);
-
-                switch (event.key) {
-                    case "ArrowLeft":
-                        console.log("left");
-                        myX -= speed;
-                    break;
-
-                    case "ArrowDown":
-                        console.log("down");
-                        myY += speed;   
-                    break;
-
-                    case "ArrowUp":
-                        console.log("up");
-                        myY -= speed;   
-                    break;
-
-                    case "ArrowRight":
-                        console.log("right");
-                        myX += speed;   
-                    break;
-                    
-                
-                    default:
-                        break;
-                }
-                moveRect(myX, myY);
+            document.addEventListener("keyup", (event) => {
+                keyInfo = new KeyInfo(
+                    event.key, 
+                    event.keyCode, 
+                    event.ctrlKey, 
+                    event.altKey, 
+                    event.shiftKey, 
+                    event.metaKey
+                );
             });
         </script>
     </body>
