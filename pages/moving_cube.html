@@ -37,7 +37,8 @@
             ctx.fillRect(myX, myY, 50, 50);
             ctx.stroke();
 
-            function Update() {
+
+            setInterval(() => {
                 if (!keyInfo.ctrl && !keyInfo.alt && !keyInfo.shift && !keyInfo.meta) {
                     if (keyInfo.key == "ArrowLeft" || keyInfo.key == "KeyA") {myX -= speed}
                     if (keyInfo.key == "ArrowDown" || keyInfo.key == "KeyS") {myX -= speed}
@@ -48,9 +49,7 @@
                 ctx.clearRect(0, 0, 2000, 200);
                 ctx.fillRect(myX, myY, 50, 50);
                 ctx.stroke();
-            }
-
-            setInterval(Update, FPS);
+            }, FPS);
 
             function KeyInfo(key, code, ctrl, alt, shift, meta) {
                 this.key = key;
