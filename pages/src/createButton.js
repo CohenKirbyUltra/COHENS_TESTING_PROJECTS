@@ -20,65 +20,78 @@ class Element {
     }
 }
 
+var temp = {
+    item: "",
+    label: "",
+    br: "",
+    btn: "",
+    a: "",
+    image: "",
+    nam: "",
+    div: "",
+    rec: "",
+    descript: ""
+};
+
 class Modification {
     constructor(span, description, img, inactive, recommended) {
         // grid-item
-        let item = new Element("DIV");
-        item.className = "grid-item";
+        temp.item = new Element("DIV");
+        temp.item.className = "grid-item";
 
         // for inactivity
-        let label = new Element("LABEL");
-        label.innerHTML = "Unavailible";
+        temp.label = new Element("LABEL");
+        temp.label.innerHTML = "Unavailible";
 
-        let br = new Element("BR");
+        temp.br = new Element("BR");
 
         // contents
-        let btn = new Element("BUTTON");
-        btn.id="modslot";
-        btn.disabled = inactive; 
+        temp.btn = new Element("BUTTON");
+        temp.btn.id="modslot";
+        temp.btn.disabled = inactive; 
 
-        let a = new Element("A");
+        temp.a = new Element("A");
 
-        let image = new Element("IMG");
+        temp.image = new Element("IMG");
         if (img !== null || img !== undefined || img !== "") {
-            image.src = img;
+            temp.image.src = img;
         }
-        image.className = "icon";
-        image.width = "125px";
-        image.height = "125px";
+        temp.image.className = "icon";
+        temp.image.width = "125px";
+        temp.image.height = "125px";
 
-        let nam = new Element("SPAN");
-        nam.innerHTML = span;
+        temp.nam = new Element("SPAN");
+        temp.nam.innerHTML = span;
 
         // description
-        let div = new Element("DIV");
+        temp.div = new Element("DIV");
 
-        let rec = new Element("P");
-        rec.style.fontSize = "20px";
-        rec.innerHTML = "Recommended";
+        temp.rec = new Element("P");
+        temp.rec.style.fontSize = "20px";
+        temp.rec.innerHTML = "Recommended";
 
-        let descript = new Element("H4");
-        descript.innerHTML = description;
+        temp.descript = new Element("H4");
+        temp.descript.innerHTML = description;
 
         this.imprint();
     }
 
     imprint() {
-        item.appendChild(btn);
+        temp.item.appendChild(btn);
 
         if (inactive) {
-            btn.before(label);
-            label.after(br);
+            temp.btn.before(temp.label);
+            temp.label.after(temp.br);
         }
 
-        btn.appendChild(a);
-        a.appendChild(image);
-        a.after(nam);
-        item.after(div);
-        div.appendChild(descript);
+        temp.btn.appendChild(a);
+        temp.a.appendChild(image);
+        temp.a.after(nam);
+        temp.item.after(div);
+        temp.div.appendChild(descript);
 
         if (recommended) {
-        descript.before(rec);
+        temp.descript.before(rec);
         }
     }
 }
