@@ -74,6 +74,8 @@ class Modification {
         descript.innerHTML = description;
 
         // Build
+
+        document.getElementById("container").appendChild(item)
         
         item.appendChild(btn);
 
