@@ -8,7 +8,7 @@ var inputs = [
 
 var button = document.getElementById("createit");
 
-button.addEventListener("click", function (){
+button.addEventListener("click", () => {
     if (!inputs[0].value === "" || !inputs[1].value === "") {
         new Modification(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, inputs[4].value);
     }
@@ -36,62 +36,62 @@ var temp = {
 class Modification {
     constructor(span, description, img, inactive, recommended) {
         // grid-item
-        temp.item = new Element("DIV");
-        temp.item.className = "grid-item";
+        let item = new Element("DIV");
+        item.className = "grid-item";
 
         // for inactivity
-        temp.label = new Element("LABEL");
-        temp.label.innerHTML = "Unavailible";
+        let label = new Element("LABEL");
+        label.innerHTML = "Unavailible";
 
-        temp.br = new Element("BR");
+        let br = new Element("BR");
 
         // contents
-        temp.btn = new Element("BUTTON");
-        temp.btn.id="modslot";
-        temp.btn.disabled = inactive; 
+        let btn = new Element("BUTTON");
+        btn.id="modslot";
+        btn.disabled = inactive; 
 
-        temp.a = new Element("A");
+        let a = new Element("A");
 
-        temp.image = new Element("IMG");
+        let image = new Element("IMG");
         if (img !== null || img !== undefined || img !== "") {
-            temp.image.src = img;
+            image.src = img;
         }
-        temp.image.className = "icon";
-        temp.image.width = "125px";
-        temp.image.height = "125px";
+        image.className = "icon";
+        image.width = "125px";
+        image.height = "125px";
 
-        temp.nam = new Element("SPAN");
-        temp.nam.innerHTML = span;
+        let nam = new Element("SPAN");
+        nam.innerHTML = span;
 
         // description
-        temp.div = new Element("DIV");
+        let div = new Element("DIV");
 
-        temp.rec = new Element("P");
-        temp.rec.style = "font-size: 20px;";
-        temp.rec.innerHTML = "Recommended";
+        let rec = new Element("P");
+        rec.style = "font-size: 20px";
+        rec.innerHTML = "Recommended";
 
-        temp.descript = new Element("H4");
-        temp.descript.innerHTML = description;
+        let descript = new Element("H4");
+        descript.innerHTML = description;
 
         this.imprint();
     }
 
     imprint() {
-        temp.item.appendChild(temp.btn);
+        item.appendChild(btn);
 
         if (inactive) {
-            temp.btn.before(temp.label);
-            temp.label.after(temp.br);
+            btn.before(label);
+            label.after(br);
         }
 
-        temp.btn.appendChild(temp.a);
-        temp.a.appendChild(temp.image);
-        temp.a.after(temp.nam);
-        temp.item.after(temp.div);
-        temp.div.appendChild(temp.descript);
+        btn.appendChild(a);
+        a.appendChild(image);
+        a.after(nam);
+        item.after(div);
+        div.appendChild(descript);
 
         if (recommended) {
-        temp.descript.before(temp.rec);
+        descript.before(rec);
         }
     }
 }
