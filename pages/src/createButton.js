@@ -67,7 +67,7 @@ class Modification {
         temp.div = new Element("DIV");
 
         temp.rec = new Element("P");
-        temp.rec.style.fontSize = "20px";
+        temp.rec.style = "font-size: 20px;";
         temp.rec.innerHTML = "Recommended";
 
         temp.descript = new Element("H4");
