@@ -77,21 +77,21 @@ class Modification {
     }
 
     imprint() {
-        temp.item.appendChild(btn);
+        temp.item.appendChild(temp.btn);
 
         if (inactive) {
             temp.btn.before(temp.label);
             temp.label.after(temp.br);
         }
 
-        temp.btn.appendChild(a);
-        temp.a.appendChild(image);
-        temp.a.after(nam);
-        temp.item.after(div);
-        temp.div.appendChild(descript);
+        temp.btn.appendChild(temp.a);
+        temp.a.appendChild(temp.image);
+        temp.a.after(temp.nam);
+        temp.item.after(temp.div);
+        temp.div.appendChild(temp.descript);
 
         if (recommended) {
-        temp.descript.before(rec);
+        temp.descript.before(temp.rec);
         }
     }
 }
