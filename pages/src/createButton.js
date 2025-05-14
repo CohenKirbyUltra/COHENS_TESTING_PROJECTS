@@ -73,10 +73,8 @@ class Modification {
         let descript = new Element("H4");
         descript.innerHTML = description;
 
-        this.imprint();
-    }
-
-    imprint() {
+        // Build
+        
         item.appendChild(btn);
 
         if (inactive) {
