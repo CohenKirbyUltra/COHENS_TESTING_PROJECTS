@@ -8,7 +8,7 @@ var inputs = [
 
 var button = document.getElementById("createit");
 
-button.addEventListener("click", () => {
+button.addEventListener("click", function (){
     if (!inputs[0].value === "" || !inputs[1].value === "") {
         new Modification(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value, inputs[4].value);
     }
